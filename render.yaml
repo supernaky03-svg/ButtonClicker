@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: telegram-button-retry
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python main.py
+    healthCheckPath: /health
+    envVars:
+      - key: API_ID
+        sync: false
+      - key: API_HASH
+        sync: false
+      - key: SESSION_STRING
+        sync: false
+      - key: GROUP_ID
+        value: "-1004448726150"
+      - key: BOT_USERNAME
+        value: "Tharsett_TikTok_repost_bot"
+      - key: TARGET_BUTTON_TEXT
+        value: "Accept"
+      - key: CONFIRM_TEXT
+        value: "အတည်ပြုပြီးပါပြီ"
+      - key: CONFIRM_TIMEOUT_SECONDS
+        value: "10"
+      - key: RETRY_PAUSE_SECONDS
+        value: "1"
+      - key: MAX_ATTEMPTS
+        value: "0"
